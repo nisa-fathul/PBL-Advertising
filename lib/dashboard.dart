@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
-import 'kendaraan_page.dart'; // Impor file kendaraan_page.dart//untuk login
-import 'banner_page.dart'; // Impor file banner_page.dart
+import 'kendaraan_page.dart'; // Impor file kendaraan_page.dart
+import 'banner_page.dart'; // Impor file kendaraan_page.dart
 
 void main() {
+  //WidgetsFlutterBinding.ensureInitialized();
+  // await Firebase.initializeApp();
   runApp(const MyApp());
 }
 
