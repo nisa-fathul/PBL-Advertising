@@ -85,7 +85,8 @@ class MyApp extends StatelessWidget {
           // Tambahkan logika ketika tombol ditekan di sini
         },
         backgroundColor: Colors.blue,
-        child: const Icon(Icons.arrow_forward), // Ganti dengan warna yang diinginkan
+        child: const Icon(
+            Icons.arrow_forward), // Ganti dengan warna yang diinginkan
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.endFloat,
     );

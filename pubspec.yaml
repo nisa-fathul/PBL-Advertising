@@ -44,6 +44,8 @@ dependencies:
   
 
 dev_dependencies:
+  firebase_auth: ^4.10.1 #Berhubungan dengan Login 
+  firebase_core: ^2.17.0 # Untuk Menyambungkan 
   flutter_test:
     sdk: flutter
 

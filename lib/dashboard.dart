@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
-import 'kendaraan_page.dart'; // Impor file kendaraan_page.dart
+import 'kendaraan_page.dart'; // Impor file kendaraan_page.dart//untuk login
+import 'banner_page.dart'; // Impor file banner_page.dart
 
 void main() {
   runApp(const MyApp());
@@ -34,47 +35,44 @@ class _DashboardPageState extends State<DashboardPage> {
     });
   }
 
-  Widget buildTopRightIcon() {
+  Widget buildWelcomeText() {
     return Row(
-      mainAxisAlignment: MainAxisAlignment.end,
       children: [
+        const Align(
+          alignment: Alignment.topLeft,
+          child: Padding(
+            padding: EdgeInsets.only(
+              top: 5.0,
+              left: 8.0,
+              right: 8.0,
+            ),
+            child: Text(
+              'Hallo,', // Text Selamat Datang
+              style: TextStyle(
+                color: Color(0xFF0D0140),
+                fontSize: 24,
+                fontWeight: FontWeight.bold,
+                fontFamily: 'DM Sans', // Tambahkan font family
+              ),
+            ),
+          ),
+        ),
+        Spacer(), // Memberikan ruang kosong di antara teks dan ikon
         IconButton(
           icon: const Icon(Icons.info_outline),
           iconSize: 35,
           onPressed: () {
-            // Tambahkan logika yang ingin Anda lakukan ketika ikon chat ditekan di sini
+            // Tambahkan logika yang ingin Anda lakukan ketika ikon info ditekan di sini
           },
         ),
         IconButton(
           icon: const Icon(Icons.chat),
           iconSize: 35,
           onPressed: () {
-            // Tambahkan logika yang ingin Anda lakukan ketika ikon info ditekan di sini
+            // Tambahkan logika yang ingin Anda lakukan ketika ikon chat ditekan di sini
           },
         ),
       ],
-    );
-  }
-
-  Widget buildWelcomeText() {
-    return const Align(
-      alignment: Alignment.topLeft,
-      child: Padding(
-        padding: EdgeInsets.only(
-          top: 5.0,
-          left: 8.0,
-          right: 8.0,
-        ),
-        child: Text(
-          'Hallo,', // Text Selamat Datang
-          style: TextStyle(
-            color: Color(0xFF0D0140),
-            fontSize: 24,
-            fontWeight: FontWeight.bold,
-            fontFamily: 'DM Sans', // Tambahkan font family
-          ),
-        ),
-      ),
     );
   }
 
@@ -240,7 +238,7 @@ class _DashboardPageState extends State<DashboardPage> {
           context,
           MaterialPageRoute(
               builder: (context) =>
-                  const KendaraanPage()), // Navigasi ke halaman KendaraanPage
+                  const BannerPage()), // Navigasi ke halaman BannerPage
         );
       },
       child: SizedBox(
@@ -338,7 +336,6 @@ class _DashboardPageState extends State<DashboardPage> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            buildTopRightIcon(),
             buildWelcomeText(),
             buildUserNameText(),
             buildImageCard(),
