@@ -49,6 +49,7 @@ class DefaultFirebaseOptions {
     messagingSenderId: '19864941021',
     projectId: 'mobile-advertising-f28e7',
     authDomain: 'mobile-advertising-f28e7.firebaseapp.com',
+    databaseURL: 'https://mobile-advertising-f28e7-default-rtdb.asia-southeast1.firebasedatabase.app',
     storageBucket: 'mobile-advertising-f28e7.appspot.com',
     measurementId: 'G-HW8R08N1H8',
   );
@@ -58,6 +59,7 @@ class DefaultFirebaseOptions {
     appId: '1:19864941021:android:3552a7b63543cc60fe0634',
     messagingSenderId: '19864941021',
     projectId: 'mobile-advertising-f28e7',
+    databaseURL: 'https://mobile-advertising-f28e7-default-rtdb.asia-southeast1.firebasedatabase.app',
     storageBucket: 'mobile-advertising-f28e7.appspot.com',
   );
 
@@ -66,6 +68,7 @@ class DefaultFirebaseOptions {
     appId: '1:19864941021:ios:c3f32d398c6ed3c7fe0634',
     messagingSenderId: '19864941021',
     projectId: 'mobile-advertising-f28e7',
+    databaseURL: 'https://mobile-advertising-f28e7-default-rtdb.asia-southeast1.firebasedatabase.app',
     storageBucket: 'mobile-advertising-f28e7.appspot.com',
     iosBundleId: 'com.example.pbl',
   );
@@ -75,6 +78,7 @@ class DefaultFirebaseOptions {
     appId: '1:19864941021:ios:2a49edc01eacb6acfe0634',
     messagingSenderId: '19864941021',
     projectId: 'mobile-advertising-f28e7',
+    databaseURL: 'https://mobile-advertising-f28e7-default-rtdb.asia-southeast1.firebasedatabase.app',
     storageBucket: 'mobile-advertising-f28e7.appspot.com',
     iosBundleId: 'com.example.pbl.RunnerTests',
   );

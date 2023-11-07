@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'signup.dart';
+import 'dashboard.dart';
 // import 'main.dart';
 
 void main() {
@@ -59,7 +59,7 @@ class LoginPage extends StatelessWidget {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => const signup(),
+                        builder: (context) => const DashboardPage(),
                       ),
                     );
                   },

@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:carousel_slider/carousel_slider.dart'; // Impor Carousel
 import 'package:google_nav_bar/google_nav_bar.dart';
 import 'kendaraan_page.dart'; // Impor file kendaraan_page.dart
-import 'banner_page.dart'; // Impor file kendaraan_page.dart
+import 'banner_page.dart'; // Impor file banner_page.dart
+import 'billboard_page.dart'; // Impor file billboard_page.dart
 
 void main() {
   //WidgetsFlutterBinding.ensureInitialized();
@@ -101,10 +103,10 @@ class _DashboardPageState extends State<DashboardPage> {
     );
   }
 
-  Widget buildImageCard() {
+  Widget buildPromotionCard() {
     return SizedBox(
       width: 400,
-      height: 200,
+      height: 220,
       child: Card(
         elevation: 3,
         color: Colors.white,
@@ -115,42 +117,35 @@ class _DashboardPageState extends State<DashboardPage> {
         ),
         child: Stack(
           children: [
-            Image.network(
-              'images/bugatti.jpg',
-              width: 400,
-              height: 200,
-              fit: BoxFit.fitWidth,
-            ),
-            Positioned(
-              top: 0,
-              left: 0,
-              right: 0,
-              child: Container(
-                padding: const EdgeInsets.all(10.0),
-                child: const Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      'Diskon 10%',
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 18,
-                        fontWeight: FontWeight.bold,
-                        fontFamily: 'DM Sans', // Tambahkan font family
-                      ),
-                    ),
-                    SizedBox(height: 5),
-                    Text(
-                      'Pembayaran BNI',
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 18,
-                        fontWeight: FontWeight.bold,
-                        fontFamily: 'DM Sans', // Tambahkan font family
-                      ),
-                    ),
-                  ],
+            CarouselSlider(
+              items: [
+                Image.network(
+                  'images/bugatti.jpg',
+                  width: 400,
+                  height: 250,
+                  fit: BoxFit.fitWidth,
                 ),
+                Image.network(
+                  'images/promosi bni.jpg',
+                  width: 400,
+                  height: 250,
+                  fit: BoxFit.fitWidth,
+                ),
+                // Tambahkan gambar-gambar carousel lainnya di sini
+              ],
+              options: CarouselOptions(
+                height: 200,
+                aspectRatio: 16 / 9,
+                viewportFraction: 1,
+                initialPage: 0,
+                enableInfiniteScroll: true,
+                reverse: false,
+                autoPlay: true,
+                autoPlayInterval: Duration(seconds: 3),
+                autoPlayAnimationDuration: Duration(milliseconds: 800),
+                autoPlayCurve: Curves.fastOutSlowIn,
+                enlargeCenterPage: false,
+                scrollDirection: Axis.horizontal,
               ),
             ),
           ],
@@ -180,54 +175,49 @@ class _DashboardPageState extends State<DashboardPage> {
     );
   }
 
-  Widget buildCard() {
-    return SizedBox(
-      width: 400,
-      height: 200,
-      child: Card(
-        elevation: 3,
-        color: Colors.white,
-        clipBehavior: Clip.hardEdge,
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(10),
-        ),
-        child: Stack(
-          children: [
-            Image.asset(
-              'images/billboard.jpg',
-              width: 400,
-              height: 150,
-              fit: BoxFit.cover,
-            ),
-            const Positioned(
-              bottom: 8,
-              left: 8,
-              child: Text(
-                'Billboard',
-                style: TextStyle(
-                  color: Colors.black,
-                  fontSize: 22,
-                  fontWeight: FontWeight.bold,
-                  fontFamily: 'DM Sans',
+  Widget buildCardBillboard() {
+    return GestureDetector(
+      onTap: () {
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+              builder: (context) =>
+                  const BillboardPage()), // Navigasi ke halaman KendaraanPage
+        );
+      },
+      child: SizedBox(
+        width: 400,
+        height: 200,
+        child: Card(
+          elevation: 3,
+          color: Colors.white,
+          clipBehavior: Clip.hardEdge,
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(10),
+          ),
+          child: Stack(
+            children: [
+              Image.asset(
+                'images/billboard.jpg',
+                width: 400,
+                height: 150,
+                fit: BoxFit.cover,
+              ),
+              const Positioned(
+                bottom: 8,
+                left: 8,
+                child: Text(
+                  'Billboard',
+                  style: TextStyle(
+                    color: Colors.black,
+                    fontSize: 22,
+                    fontWeight: FontWeight.bold,
+                    fontFamily: 'DM Sans',
+                  ),
                 ),
               ),
-            ),
-            Positioned(
-              bottom: 8,
-              right: 8,
-              child: ElevatedButton(
-                onPressed: () {
-                  // Lakukan sesuatu ketika tombol ditekan
-                  print('Billboard');
-                },
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: const Color(
-                      0xFF0D0140), // Ganti dengan warna yang Anda inginkan
-                ),
-                child: const Text('Tombol Card'),
-              ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );
@@ -245,7 +235,7 @@ class _DashboardPageState extends State<DashboardPage> {
       },
       child: SizedBox(
         width: 200,
-        height: 150,
+        height: 200,
         child: Card(
           elevation: 3,
           color: Colors.white, // Atur nilai alpha untuk membuat card transparan
@@ -259,7 +249,7 @@ class _DashboardPageState extends State<DashboardPage> {
               Image.asset(
                 'images/banner.png',
                 width: 200,
-                height: 100,
+                height: 150,
                 fit: BoxFit.cover,
               ),
               const Positioned(
@@ -294,10 +284,10 @@ class _DashboardPageState extends State<DashboardPage> {
       },
       child: SizedBox(
         width: 200,
-        height: 150,
+        height: 200,
         child: Card(
           elevation: 3,
-          color: Colors.white, // Atur nilai alpha untuk membuat card transparan
+          color: Colors.black, // Atur nilai alpha untuk membuat card transparan
           clipBehavior: Clip.hardEdge,
           shape: RoundedRectangleBorder(
             borderRadius:
@@ -308,7 +298,7 @@ class _DashboardPageState extends State<DashboardPage> {
               Image.asset(
                 'images/mobil.jpg',
                 width: 200,
-                height: 100,
+                height: 150,
                 fit: BoxFit.cover,
               ),
               const Positioned(
@@ -340,10 +330,10 @@ class _DashboardPageState extends State<DashboardPage> {
           children: [
             buildWelcomeText(),
             buildUserNameText(),
-            buildImageCard(),
+            buildPromotionCard(),
             buildChooseText(),
             const SizedBox(height: 20),
-            buildCard(), // Billboard
+            buildCardBillboard(), // Card Billboard
             const SizedBox(height: 25),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -370,31 +360,31 @@ class _DashboardPageState extends State<DashboardPage> {
               hoverColor: Colors.black,
               gap: 8,
               activeColor: Colors.white,
-              iconSize: 35,
+              iconSize: 30,
               padding: const EdgeInsets.symmetric(
                 horizontal: 20,
                 vertical: 12,
               ),
               duration: const Duration(milliseconds: 400),
               tabBackgroundColor: const Color(0xFF0D0140),
-              color: Colors.black,
+              color: const Color(0xFF0D0140),
               tabs: const [
                 GButton(
                   icon: Icons.home,
                   text: 'Home',
-                ),
+                ), // Tambahkan GButton dengan ikon Home
                 GButton(
                   icon: Icons.shopping_cart,
                   text: 'Cart',
-                ),
+                ), // Tambahkan GButton dengan ikon Cart
                 GButton(
                   icon: Icons.design_services_outlined,
                   text: 'Design',
-                ),
+                ), // Tambahkan GButton dengan ikon Design
                 GButton(
                   icon: Icons.account_circle,
                   text: 'Profile',
-                ),
+                ), // Tambahkan GButton dengan ikon Account Profile
               ],
               selectedIndex: _selectedIndex,
               onTabChange: _onItemTapped,
